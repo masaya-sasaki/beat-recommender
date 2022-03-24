@@ -16,7 +16,14 @@ const keymapping = {
 
 const Recommendation = (props) => {
   return (
-    <div>Try and find a song with key {props.keys.map(key=>keymapping[key]+',')} with a tempo around {props.tempos.reduce((a,b)=>a+b,0)/props.tempos.length}BPM. </div>
+    <div>
+      <h2>Recommendation of keys and tempo</h2>
+      {props.recResults.map(item=>{
+        return (<div>
+          Find a song with the key {keymapping[item.key]} and tempo {item.tempo}BPM
+        </div>)
+      })}
+    </div>
   )
 }
 

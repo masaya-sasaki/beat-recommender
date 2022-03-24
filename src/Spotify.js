@@ -43,48 +43,69 @@ export const Spotify = {
                 }))
             })
     },
-    getTrackVibes(track_ids){
+    async getTrackVibes(track_ids){
         if(!track_ids){
             console.log('requires track ids')
             return;
         }
         const access_token = Spotify.getAccessToken();
-        const fetchReq1 = fetch(`https://api.spotify.com/v1/audio-analysis/${track_ids[0]}`, {
-            headers: {
-                Authorization: `Bearer ${access_token}`
-            }
-        }).then(response => response.json())
-        .then(jsonResponse => {
-            console.log(jsonResponse)
-            return {
-                key: jsonResponse.track.key,
-                tempo: jsonResponse.track.tempo
-            }
-        })
-        const fetchReq2 = fetch(`https://api.spotify.com/v1/audio-analysis/${track_ids[1]}`, {
-            headers: {
-                Authorization: `Bearer ${access_token}`
-            }
-        }).then(response => response.json())
-        .then(jsonResponse => {
-            return {
-                key: jsonResponse.track.key,
-                tempo: jsonResponse.track.tempo
-            }
-        })
-        const fetchReq3 = fetch(`https://api.spotify.com/v1/audio-analysis/${track_ids[2]}`, {
-            headers: {
-                Authorization: `Bearer ${access_token}`
-            }
-        }).then(response => response.json())
-        .then(jsonResponse => {
-            return {
-                key: jsonResponse.track.key,
-                tempo: jsonResponse.track.tempo
-            }
-        })
-        const allData = Promise.all([fetchReq1, fetchReq2, fetchReq3]);
-        return allData.then((res)=> res);
+
+        async function fetchKeyAndTempo(track_id){
+            const res = await fetch(`https://api.spotify.com/v1/audio-analysis/${track_id}`, {
+                headers: {
+                    Authorization: `Bearer ${access_token}`
+                }
+            })
+            const data = await res.json()
+            console.log(data.track)
+            const key = data.track.key 
+            const tempo = data.track.tempo 
+            return {key: key, tempo: tempo}
+        }
+
+        async function getAllKeyAndTempo(){
+            const apiPromises = track_ids.map(fetchKeyAndTempo)
+            const resultArray = await Promise.all(apiPromises)
+            return resultArray
+        }
+
+        return getAllKeyAndTempo()
+        // const fetchReq1 = fetch(`https://api.spotify.com/v1/audio-analysis/${track_ids[0]}`, {
+        //     headers: {
+        //         Authorization: `Bearer ${access_token}`
+        //     }
+        // }).then(response => response.json())
+        // .then(jsonResponse => {
+        //     console.log(jsonResponse)
+        //     return {
+        //         key: jsonResponse.track.key,
+        //         tempo: jsonResponse.track.tempo
+        //     }
+        // })
+        // const fetchReq2 = fetch(`https://api.spotify.com/v1/audio-analysis/${track_ids[1]}`, {
+        //     headers: {
+        //         Authorization: `Bearer ${access_token}`
+        //     }
+        // }).then(response => response.json())
+        // .then(jsonResponse => {
+        //     return {
+        //         key: jsonResponse.track.key,
+        //         tempo: jsonResponse.track.tempo
+        //     }
+        // })
+        // const fetchReq3 = fetch(`https://api.spotify.com/v1/audio-analysis/${track_ids[2]}`, {
+        //     headers: {
+        //         Authorization: `Bearer ${access_token}`
+        //     }
+        // }).then(response => response.json())
+        // .then(jsonResponse => {
+        //     return {
+        //         key: jsonResponse.track.key,
+        //         tempo: jsonResponse.track.tempo
+        //     }
+        // })
+        // const allData = Promise.all([fetchReq1, fetchReq2, fetchReq3]);
+        // return allData.then((res)=> res);
     }
 }
 

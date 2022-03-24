@@ -1,4 +1,5 @@
 import React from 'react'
+import './SearchBar.css'
 
 const SearchBar = (props) => {
   const handleChange = (event) => {
@@ -12,7 +13,7 @@ const SearchBar = (props) => {
   return (
     <div>
         <input value={props.term} onChange={(event)=>handleChange(event)}></input>
-        <button onClick={handleClick}>Search</button>
+        <button className='buttons' onClick={handleClick}>Search</button>
     </div>
   )
 }

@@ -7,23 +7,23 @@ const SearchResults = (props) => {
     }
 
   return (
-    <div className='searchResultContainer'>
+    <div className='searchResults'>
+        <h2>Search Results</h2>
+        <div className='searchResultContainer'>
        {
-           props.searchedList.map(track=>{
+           props.searchedList.map((track)=>{
                return (
-                   <div>
-                       <span>
-                       {track.name+' '}
-                       </span>
-                       <span>
-                        by {track.artist+' '}
-                       </span>
-                       <button onClick={()=>addSong(track)}>+</button>
-                       <button>-</button>
+                   <div className='search-row'>
+                       <div className='name-artist'>
+                           <div>{track.name+' '}</div>
+                           <div className='artist'>{track.artist+' '}</div>
+                       </div>
+                       <button className='buttons' onClick={()=>addSong(track)}>Add</button>
                     </div>
                )
            })
        }
+    </div>
     </div>
   )
 }

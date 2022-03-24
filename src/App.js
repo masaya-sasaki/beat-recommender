@@ -10,8 +10,7 @@ function App() {
   const [term, setTerm] = useState('')
   const [searchedList, setSearchedList] = useState([])
   const [songList, setSongList] = useState([])
-  const [keys, setKeys] = useState([]);
-  const [tempos, setTempos] = useState([]);
+  const [recResults, setRecResults] = useState([])
   
   const searchTerm = (term) => {
     Spotify.search(term).then(songlist=>{
@@ -23,22 +22,21 @@ function App() {
     setSongList([...songList, song])
   }
 
+  async function getTrackKeyAndTempo(track_ids){
+    const keyAndTempoList = await Spotify.getTrackVibes(track_ids)
+    setRecResults(keyAndTempoList);
+  }
+
   const getTrackVibes = () => {
     let track_ids = songList.map(track=>track.id)
-    Spotify.getTrackVibes(track_ids).then(obj=>{
-      console.log(obj)
-      const first = obj[0]
-      const second = obj[1]
-      const third = obj[2]
-      setKeys([first.key, second.key, third.key])
-      setTempos([first.tempo, second.tempo, third.tempo])
-    })
+    getTrackKeyAndTempo(track_ids)
   }
 
 
   return (
         <div className='container'>
-          <h1>beat-recommender</h1>
+          <h1>Spotify Beat-Recommender</h1>
+          <p>Search songs and add them to the songlist and click on the recommendation button to receive a recommendation of the key and tempo of a beat.</p>
             <SearchBar term={term} setTerm={setTerm} searchTerm={searchTerm}>
               This is the searchbar
             </SearchBar>
@@ -50,7 +48,7 @@ function App() {
               This is the song list 
             </SongList>
           </div>
-          <Recommendation keys={keys} tempos={tempos}/>
+          <Recommendation recResults={recResults}/>
         </div>
   );
 }
