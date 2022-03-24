@@ -1,7 +1,7 @@
 .searchResultContainer{
     overflow-y: scroll;
     height: 60vh; 
-    width: 50vw; 
+    width: 50vw;    
 }
 
 .search-row{
