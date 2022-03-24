@@ -1,0 +1,25 @@
+.search-row{
+    display: grid; 
+    grid-template-rows: 1;
+    grid-template-columns: 10fr 1fr;
+}
+
+.name-artist{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1;
+}
+
+.artist{
+    color: #b3b3b3;
+    font-size: 0.8rem;
+}
+
+.buttons{
+    border-radius: 20px;
+    padding: 0.5rem 0;
+    margin: 0.5rem 1.2rem;
+    width: 4rem;
+    color: white;
+    border: 2px solid white;
+}
