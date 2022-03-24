@@ -25,4 +25,7 @@ Submit Feature
 Next step is to figure out how to add more songs to the song list
 by finding out how to send multiple http requests together or dynamically - completed
 
-3. The last step is to add more styling and additional features. 
+3. The last step is to add more styling - completed 
+
+4. Future Enhancements: Come up with a better algorithm that takes the song lists
+and returns a recommendation of beat. 
