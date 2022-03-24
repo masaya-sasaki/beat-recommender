@@ -14,8 +14,12 @@ based on the key and tempo of the songs that are submitted.
 ## Design 
 Frontend: React 
 API: Spotify Audio Analysis API 
-1. Basic Features
+1. Basic Features - completed
 Simple Frontend UI using React
 Authentication Feature 
 Search Feature 
 Submit Feature 
+
+2. Currently, only three songs can be added to the song list. 
+Next step is to figure out how to add more songs to the song list
+by finding out how to send multiple http requests together or dynamically. 
