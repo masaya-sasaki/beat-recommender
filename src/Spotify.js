@@ -60,7 +60,8 @@ export const Spotify = {
             console.log(data.track)
             const key = data.track.key 
             const tempo = data.track.tempo 
-            return {key: key, tempo: tempo}
+            const mode = data.track.mode
+            return {key: key, tempo: tempo, mode: mode}
         }
 
         async function getAllKeyAndTempo(){

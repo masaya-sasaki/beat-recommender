@@ -15,13 +15,18 @@ const keymapping = {
     11: 'B'
 }
 
+const modemapping = {
+  0: 'major',
+  1: 'minor'
+}
+
 const Recommendation = (props) => {
   return (
     <div className='rec-container'>
       <h2>Recommendation of keys and tempo</h2>
       {props.recResults.map(item=>{
         return (<div>
-          Find a song with the key {keymapping[item.key]} and tempo {item.tempo}BPM
+          Find a song that is {keymapping[item.key]}{modemapping[item.mode]} and tempo {item.tempo}BPM
         </div>)
       })}
     </div>
