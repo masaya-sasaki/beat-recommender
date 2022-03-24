@@ -2,6 +2,10 @@ import React from 'react'
 import './SongList.css'
 
 const SongList = (props) => {
+  const handleClick = (track_id) => {
+    props.removeSong(track_id)
+  }
+  
   return (
     <div className='songListContainer'>
       <h2>Song List</h2>
@@ -13,7 +17,7 @@ const SongList = (props) => {
                            <div>{track.name+' '}</div>
                            <div className='artist'>{track.artist+' '}</div>
                        </div>
-                       <button className='buttons'>Remove</button>
+                       <button className='buttons' onClick={()=>handleClick(track.id)}>Remove</button>
                     </div>
                 )
             })

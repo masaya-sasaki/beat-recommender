@@ -22,6 +22,10 @@ function App() {
     setSongList([...songList, song])
   }
 
+  const removeSong = (track_id) => {
+    setSongList(songList.filter(song=>song.id!==track_id))
+  }
+
   async function getTrackKeyAndTempo(track_ids){
     const keyAndTempoList = await Spotify.getTrackVibes(track_ids)
     setRecResults(keyAndTempoList);
@@ -44,7 +48,7 @@ function App() {
             <SearchResults searchedList={searchedList} addSong={addSong}>
               This is the search results
             </SearchResults>
-            <SongList songList={songList} getTrackVibes={getTrackVibes}>
+            <SongList songList={songList} getTrackVibes={getTrackVibes} removeSong={removeSong}>
               This is the song list 
             </SongList>
           </div>
