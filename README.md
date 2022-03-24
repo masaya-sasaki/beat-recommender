@@ -1,6 +1,7 @@
 # beat-recommender
 
 This repo is a React application that uses Spotify API to recommend a beat. 
+Search songs and add them to the songlist and click on the recommendation button to receive a recommendation of the key and tempo of a beat based on the songlist.
 
 ## User Flow
 First, upon launch, the app will prompt the user to authorize connecting 
@@ -22,4 +23,6 @@ Submit Feature
 
 2. Currently, only three songs can be added to the song list. 
 Next step is to figure out how to add more songs to the song list
-by finding out how to send multiple http requests together or dynamically. 
+by finding out how to send multiple http requests together or dynamically - completed
+
+3. The last step is to add more styling and additional features. 
