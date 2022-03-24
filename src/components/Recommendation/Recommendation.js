@@ -26,7 +26,7 @@ const Recommendation = (props) => {
       <h2>Recommendation of keys and tempo</h2>
       {props.recResults.map(item=>{
         return (<div>
-          Find a song that is {keymapping[item.key]}{modemapping[item.mode]} and tempo {item.tempo}BPM
+          Find a beat that is {keymapping[item.key]}{modemapping[item.mode]} and tempo {Math.round(item.tempo)} BPM
         </div>)
       })}
     </div>
