@@ -1,0 +1,11 @@
+.rec-container{
+    border: 3px white solid;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rec-container h2{
+    font-size: 2rem;
+}

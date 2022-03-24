@@ -7,8 +7,9 @@ const SongList = (props) => {
   }
   
   return (
-    <div className='songListContainer'>
+    <div className='songLists'>
       <h2>Song List</h2>
+    <div className='songListContainer'>
         {
             props.songList.map(track=>{
                 return (
@@ -22,7 +23,8 @@ const SongList = (props) => {
                 )
             })
         }
-        <button onClick={props.getTrackVibes} className='rec-button'>Find Recommendation based on the song list.</button>
+    </div>
+    <button onClick={props.getTrackVibes} className='rec-button'>Find Recommendation based on the song list.</button>
     </div>
   )
 }

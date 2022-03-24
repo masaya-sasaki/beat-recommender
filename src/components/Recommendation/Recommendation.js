@@ -1,4 +1,5 @@
 import React from 'react'
+import './Recommendation.css'; 
 const keymapping = {
     0: 'C',
     1: 'C♯, D♭',
@@ -16,7 +17,7 @@ const keymapping = {
 
 const Recommendation = (props) => {
   return (
-    <div>
+    <div className='rec-container'>
       <h2>Recommendation of keys and tempo</h2>
       {props.recResults.map(item=>{
         return (<div>

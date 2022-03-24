@@ -16,6 +16,7 @@
   display: flex;
   width: 100%; 
   justify-content: space-around;
+  height: 50vh;
 }
 
 p{

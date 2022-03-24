@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar/SearchBar';
 import SearchResults from './components/SearchResults/SearchResults';
 import SongList from './components/SongList/SongList';
 import { Spotify } from './Spotify';
+import Header from './components/Header/Header';
 
 function App() {
   const [term, setTerm] = useState('')
@@ -39,8 +40,7 @@ function App() {
 
   return (
         <div className='container'>
-          <h1>Spotify Beat-Recommender</h1>
-          <p>Search songs and add them to the songlist and click on the recommendation button to receive a recommendation of the key and tempo of a beat.</p>
+            <Header/>
             <SearchBar term={term} setTerm={setTerm} searchTerm={searchTerm}>
               This is the searchbar
             </SearchBar>
