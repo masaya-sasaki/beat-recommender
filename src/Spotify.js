@@ -1,6 +1,6 @@
 let user_access_token; 
 const client_id = 'f7411a9270384747868267ff15a51963';
-const redirect_uri = 'http://localhost:3000/';
+const redirect_uri = 'https://beat-recommender.netlify.app/';
 
 export const Spotify = {
     getAccessToken(){
