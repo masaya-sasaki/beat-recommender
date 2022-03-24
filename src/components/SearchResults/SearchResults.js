@@ -1,9 +1,29 @@
 import React from 'react'
+import './SearchResults.css'
 
-const SearchResults = () => {
+const SearchResults = (props) => {
+    const addSong = (track) => {
+        props.addSong(track)
+    }
+
   return (
-    <div>
-       searchresults
+    <div className='searchResultContainer'>
+       {
+           props.searchedList.map(track=>{
+               return (
+                   <div>
+                       <span>
+                       {track.name+' '}
+                       </span>
+                       <span>
+                        by {track.artist+' '}
+                       </span>
+                       <button onClick={()=>addSong(track)}>+</button>
+                       <button>-</button>
+                    </div>
+               )
+           })
+       }
     </div>
   )
 }
