@@ -29,3 +29,5 @@ by finding out how to send multiple http requests together or dynamically - comp
 
 4. Future Enhancements: Come up with a better algorithm that takes the song lists
 and returns a recommendation of beat. 
+
+5. An additional feature will be adding Youtube search API to pull up songs based on the recommendation. Then, another feature developing on that would be to connect a remixing app so that you can edit and remix songs based on the search.
