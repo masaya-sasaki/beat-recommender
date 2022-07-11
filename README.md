@@ -20,14 +20,11 @@ Simple Frontend UI using React
 Authentication Feature 
 Search Feature 
 Submit Feature 
+Multiple songs request Feature 
 
-2. Currently, only three songs can be added to the song list. 
-Next step is to figure out how to add more songs to the song list
-by finding out how to send multiple http requests together or dynamically - completed
 
-3. The last step is to add more styling - completed 
-
-4. Future Enhancements: Come up with a better algorithm that takes the song lists
+## Possible Future Enhancements
+1. Come up with a better algorithm that takes the song lists
 and returns a recommendation of beat. 
 
-5. An additional feature will be adding Youtube search API to pull up songs based on the recommendation. Then, another feature developing on that would be to connect a remixing app so that you can edit and remix songs based on the search.
+2. An additional feature will be adding Youtube search API to pull up songs based on the recommendation. Then, another feature developing on that would be to connect a remixing app so that you can edit and remix songs based on the search.
